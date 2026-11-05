@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Verity, a smiling yellow sphere">
+  <defs>
+    <radialGradient id="face" cx="36%" cy="26%" r="82%">
+      <stop offset="0" stop-color="#fff98a"/>
+      <stop offset="0.28" stop-color="#fff23f"/>
+      <stop offset="0.62" stop-color="#ffdd05"/>
+      <stop offset="0.86" stop-color="#f3c400"/>
+      <stop offset="1" stop-color="#d9a900"/>
+    </radialGradient>
+    <radialGradient id="shade" cx="82%" cy="92%" r="72%">
+      <stop offset="0" stop-color="#7a5a00" stop-opacity="0.34"/>
+      <stop offset="0.55" stop-color="#7a5a00" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#7a5a00" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+    <filter id="shadow" x="-40%" y="-60%" width="180%" height="220%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  <ellipse cx="60" cy="113" rx="31" ry="4.6" fill="#000" opacity="0.24" filter="url(#shadow)"/>
+  <circle cx="60" cy="61" r="46" fill="url(#face)"/>
+  <circle cx="60" cy="61" r="46" fill="url(#shade)"/>
+  <g fill="#1b1708" filter="url(#soft)">
+    <ellipse cx="44" cy="51" rx="6.8" ry="12.4" transform="rotate(-4 44 51)"/>
+    <ellipse cx="76" cy="51" rx="6.8" ry="12.4" transform="rotate(4 76 51)"/>
+  </g>
+  <g fill="none" stroke="#1b1708" stroke-width="6.8" stroke-linecap="round" filter="url(#soft)">
+    <path d="M25 67.5C27.5 90.5 92.5 90.5 95 67.5"/>
+    <path d="M25 67.5c-2.9-2.7-4.3-5.8-3-8"/>
+    <path d="M95 67.5c2.9-2.7 4.3-5.8 3-8"/>
+  </g>
+</svg>

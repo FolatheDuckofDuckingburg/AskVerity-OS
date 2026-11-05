@@ -1,0 +1,329 @@
+/* ==========================================================================
+   AskVerity OS — window chrome
+   ========================================================================== */
+
+.window-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  min-height: 180px;
+  overflow: hidden;
+  pointer-events: auto;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-window);
+  box-shadow: 0 10px 24px rgba(32, 27, 16, 0.18);
+  outline: none;
+}
+
+.window.is-opening {
+  animation: window-in var(--dur-slow) var(--ease);
+}
+
+.window.is-focused {
+  box-shadow: var(--shadow-window);
+}
+
+.window.is-maximized {
+  left: 8px !important;
+  top: 8px !important;
+  right: 8px;
+  bottom: 8px;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 12px;
+}
+
+.window.is-minimized {
+  display: none;
+}
+
+.window.is-dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+.window.is-dragging .window__body {
+  pointer-events: none;
+}
+
+body.is-dragging-window {
+  user-select: none;
+  cursor: grabbing;
+}
+
+/* Title bar ---------------------------------------------------------------- */
+.window__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  height: 42px;
+  padding: 0 8px 0 10px;
+  color: var(--chrome-ink);
+  background: var(--chrome-muted);
+  border-bottom: 2px solid var(--line);
+  cursor: grab;
+  touch-action: none;
+}
+
+.window.is-focused .window__bar {
+  background: var(--chrome);
+}
+
+.window__icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.window__icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.window__title {
+  flex: 1;
+  min-width: 0;
+  font-size: 13.5px;
+  font-weight: 750;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.window:not(.is-focused) .window__title {
+  color: var(--ink-soft);
+}
+
+.window__subtitle {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  padding: 1px 6px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  opacity: 0.75;
+}
+
+.window__controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: none;
+}
+
+.winbtn {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 24px;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--chrome-ink);
+  background: var(--surface-2);
+  border: 2px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.winbtn:hover {
+  background: var(--yellow);
+}
+
+.winbtn--close:hover {
+  color: #ffffff;
+  background: var(--danger);
+}
+
+.window:not(.is-focused) .winbtn {
+  opacity: 0.72;
+}
+
+/* Body --------------------------------------------------------------------- */
+.window__body {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+/* Split panes and scroll areas used by apps */
+.pane {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.app-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  padding: 8px 10px;
+  background: var(--surface-2);
+  border-bottom: 2px solid var(--line-soft);
+}
+
+.app-toolbar__spacer {
+  flex: 1;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 9px;
+  background: var(--surface-2);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.field:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.field svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  color: var(--ink-faint);
+}
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: 0;
+  outline: none;
+  font-size: 13px;
+}
+
+.field input::placeholder {
+  color: var(--ink-faint);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  font-size: 10.5px;
+  font-weight: 650;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  background: var(--surface-3);
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.chip--demo {
+  color: #6a4a00;
+  background: #fff0bd;
+  border-color: #d8b64a;
+}
+
+.chip--local {
+  color: #10563a;
+  background: #d8f5e6;
+  border-color: #8fd0b2;
+}
+
+[data-theme="midnight"] .chip--demo {
+  color: #ffe9a8;
+  background: #5a4715;
+  border-color: #8f7422;
+}
+
+[data-theme="midnight"] .chip--local {
+  color: #bdf3d8;
+  background: #1d4433;
+  border-color: #386b53;
+}
+
+/* Empty states -------------------------------------------------------------- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 26px 20px;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.empty-state strong {
+  font-size: 14.5px;
+  color: var(--ink);
+}
+
+.empty-state svg {
+  width: 40px;
+  height: 40px;
+  color: var(--ink-faint);
+}
+
+.empty-state__face {
+  width: 74px;
+  height: 74px;
+  margin-bottom: 2px;
+}
+
+.empty-state .btn {
+  margin-top: 4px;
+}
+
+@keyframes window-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 620px) {
+  .window {
+    left: 6px !important;
+    top: 6px !important;
+    right: 6px;
+    bottom: 6px;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0;
+    border-radius: 12px;
+  }
+
+  .window__subtitle {
+    display: none;
+  }
+}

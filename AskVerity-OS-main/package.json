@@ -1,0 +1,22 @@
+{
+  "name": "askverity-os",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AskVerity OS — a friendly browser desktop environment with Verity, a local-first AI companion.",
+  "type": "module",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "desktop-environment",
+    "ollama",
+    "local-first",
+    "vanilla-js"
+  ],
+  "license": "MIT"
+}

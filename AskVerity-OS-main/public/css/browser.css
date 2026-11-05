@@ -1,0 +1,656 @@
+/* ==========================================================================
+   AskVerity OS — Browser app and in-browser Verity panel
+   ========================================================================== */
+
+.browser {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--surface);
+}
+
+.browser__bar {
+  flex: none;
+  padding: 2px;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--surface);
+}
+
+.browser__row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 0;
+}
+
+.browser__row--tools {
+  padding-bottom: 0;
+}
+
+.browser__nav {
+  display: flex;
+  gap: 2px;
+}
+
+.browser__address {
+  flex: 1;
+  min-width: 0;
+  height: 24px;
+  padding: 1px 4px;
+  background: var(--surface-2);
+}
+
+.browser__address input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+}
+
+.browser__address svg {
+  width: 14px;
+  height: 14px;
+}
+
+.browser__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.browser__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  background: #ffffff;
+}
+
+.browser__viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  padding: 0;
+  background: #ffffff;
+  color: #111111;
+}
+
+.browser__viewport:has(.browser__frame) {
+  overflow: hidden;
+}
+
+.browser__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #ffffff;
+}
+
+.browser__verity-toggle {
+  width: 28px;
+  padding: 1px;
+}
+
+.browser__verity-toggle span,
+.browser__verity-toggle svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.browser__verity-toggle[aria-expanded="true"] {
+  box-shadow: var(--bevel-in);
+  background: #d4d0c8;
+}
+
+.browser__engine {
+  font-size: 10px;
+}
+
+.icon-button.is-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.browser__address svg,
+.browser__nav svg {
+  color: var(--ink);
+}
+
+/* Internal pages ----------------------------------------------------------- */
+.browser__viewport .webpage {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px 20px 28px;
+  color: #111111;
+  background: #ffffff;
+  font-family: var(--font-ui);
+}
+
+.browser__viewport .webpage__hero {
+  padding: 0 0 14px;
+  border-bottom: 1px solid #c8c8c8;
+  margin-bottom: 14px;
+  background: none;
+}
+
+.browser__viewport .webpage__eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555555;
+  margin-bottom: 4px;
+}
+
+.browser__viewport .webpage__title {
+  font-size: 20px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  color: #111111;
+}
+
+.browser__viewport .webpage__lede {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #333333;
+  max-width: 62ch;
+}
+
+.browser__viewport .webpage__section-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #333333;
+  margin: 14px 0 8px;
+}
+
+.browser__viewport .browser__row {
+  margin-top: 10px;
+}
+
+.browser__viewport .field {
+  background: #ffffff;
+  box-shadow: var(--bevel-in);
+}
+
+.browser__viewport .history-list {
+  border: 1px solid #b8b8b8;
+  background: #ffffff;
+}
+
+.browser__viewport .history-row {
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.browser__viewport .history-row__link {
+  color: #111111;
+  background: transparent;
+  padding: 6px 8px;
+}
+
+.browser__viewport .history-row__link:hover {
+  background: #000080;
+  color: #ffffff;
+}
+
+.browser__viewport .history-row__meta {
+  color: #555555;
+  font-size: 10px;
+}
+
+.browser__viewport .history-row__link:hover .history-row__meta {
+  color: #d8e4ff;
+}
+
+.browser__viewport .bookmark {
+  background: #ffffff;
+  border: 1px solid #b8b8b8;
+  color: #111111;
+  box-shadow: none;
+}
+
+.browser__viewport .bookmark:hover {
+  border-color: #000080;
+  background: #f0f4ff;
+}
+
+.browser__viewport .bookmark__url {
+  color: #555555;
+}
+
+.browser__viewport .bookmark__dot {
+  border-radius: 0;
+  background: #000080;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.browser__viewport .webpage__card {
+  margin-top: 16px;
+  padding: 8px 10px;
+  background: #ffffe1;
+  border: 1px solid #b8b8b8;
+  color: #333333;
+  font-size: 11px;
+  border-radius: 0;
+}
+
+.browser__viewport .empty-state {
+  color: #333333;
+}
+
+.browser__viewport .empty-state svg {
+  color: #555555;
+}
+
+/* Connecting dialog -------------------------------------------------------- */
+.connecting {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #dfdfdf;
+}
+
+.connecting__dialog {
+  width: min(430px, 100%);
+  padding: 3px;
+  background: var(--surface);
+  box-shadow:
+    var(--bevel-out),
+    2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.connecting__bar {
+  margin-bottom: 10px;
+  padding: 2px 4px;
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.connecting__body {
+  padding: 0 12px 10px;
+}
+
+.connecting__icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+
+.connecting__globe,
+.connecting__computer {
+  width: 46px;
+  height: 46px;
+}
+
+.connecting__text {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.connecting__status {
+  margin: 0 0 8px;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.connecting__progress {
+  height: 18px;
+  padding: 2px;
+  background: var(--surface-2);
+  box-shadow: var(--bevel-in);
+}
+
+.connecting__progress span {
+  display: block;
+  width: 38%;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, #000080 0 10px, transparent 10px 12px);
+  animation: connecting-slide 1.4s linear infinite;
+}
+
+@keyframes connecting-slide {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 62%;
+  }
+}
+
+.connecting__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+html[data-motion="reduced"] .connecting__progress span,
+html[data-motion="reduced"] .veritypanel__typing i {
+  animation: none;
+  width: 100%;
+  margin-left: 0;
+  background: #000080;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connecting__progress span {
+    animation: none;
+    width: 100%;
+    margin-left: 0;
+    background: #000080;
+  }
+}
+
+/* Error card --------------------------------------------------------------- */
+.browser__error {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #dfdfdf;
+}
+
+.browser__error-card {
+  width: min(430px, 100%);
+  padding: 3px 3px 12px;
+  background: var(--surface);
+  box-shadow:
+    var(--bevel-out),
+    2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.browser__error-title {
+  margin: 0 0 8px;
+  padding: 2px 4px;
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.browser__error-message,
+.browser__error-url,
+.browser__error-note {
+  margin: 0 10px 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.browser__error-url {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  word-break: break-all;
+  color: var(--ink-faint);
+}
+
+.browser__error-note {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.browser__error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 10px 10px;
+}
+
+/* Verity panel ------------------------------------------------------------- */
+.veritypanel {
+  flex: none;
+  width: 306px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--line-soft);
+  background: var(--surface);
+}
+
+.veritypanel[hidden] {
+  display: none;
+}
+
+.veritypanel__head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 2px 2px 4px;
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: #ffffff;
+}
+
+.veritypanel__face {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  display: block;
+}
+
+.veritypanel__face svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.veritypanel__name {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.veritypanel__head .chip {
+  background: #ffffff;
+  color: #000000;
+  font-size: 9px;
+  padding: 0 3px;
+}
+
+.veritypanel__close {
+  margin-left: auto;
+  width: 16px;
+  height: 14px;
+  border: 0;
+  padding: 0;
+  background: var(--surface);
+  color: #000000;
+  font-size: 9px;
+  line-height: 1;
+  box-shadow: var(--bevel-out-thin);
+}
+
+.veritypanel__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 8px;
+  background: var(--surface);
+}
+
+.veritypanel__empty p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.veritypanel__hint {
+  font-size: 11px;
+  color: var(--ink-faint);
+  line-height: 1.45;
+  margin: 0 0 8px;
+}
+
+.veritypanel__context {
+  padding: 6px 8px;
+  background: var(--surface-2);
+  box-shadow: var(--bevel-in);
+  margin-bottom: 6px;
+}
+
+.veritypanel__page-title {
+  margin: 0 0 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.veritypanel__page-meta {
+  margin: 0;
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
+.veritypanel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.veritypanel__actions .btn {
+  font-size: 11px;
+}
+
+.veritypanel__log {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vmsg {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vmsg__meta {
+  margin: 0;
+  font-size: 10px;
+  color: var(--ink-faint);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vmsg--user .vmsg__meta {
+  justify-content: flex-end;
+}
+
+.vmsg__text {
+  margin: 0;
+  padding: 6px 8px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--bubble-assistant);
+  border: 1px solid #808080;
+  color: var(--ink);
+}
+
+.vmsg--user .vmsg__text {
+  background: var(--bubble-user);
+}
+
+.vmsg__text--error {
+  border-color: var(--danger);
+  background: #ffe8e6;
+  color: #3a0b06;
+}
+
+[data-theme="midnight"] .vmsg__text--error {
+  background: #4a2523;
+  color: #ffd9d4;
+}
+
+.vmsg__text--typing {
+  color: var(--ink-faint);
+  letter-spacing: 0.12em;
+}
+
+.veritypanel__ask {
+  flex: none;
+  display: flex;
+  gap: 3px;
+  padding: 4px 4px 2px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--surface);
+}
+
+.veritypanel__input {
+  flex: 1;
+  min-width: 0;
+  height: 24px;
+  padding: 2px 4px;
+  border: 0;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  box-shadow: var(--bevel-in);
+}
+
+.veritypanel__send {
+  width: 26px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--bevel-out);
+}
+
+.veritypanel__send svg {
+  width: 14px;
+  height: 14px;
+}
+
+.veritypanel__send:disabled {
+  color: var(--ink-faint);
+}
+
+.veritypanel__foot {
+  flex: none;
+  margin: 0;
+  padding: 4px 6px 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  color: var(--ink-faint);
+  background: var(--surface);
+}
+
+.veritypanel__foot .dot {
+  flex: none;
+}
+
+/* Narrow windows: the panel becomes an overlay. */
+@media (max-width: 720px) {
+  .browser__body {
+    position: relative;
+  }
+
+  .veritypanel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    width: min(320px, 92%);
+    box-shadow: -2px 0 0 rgba(0, 0, 0, 0.25);
+  }
+}

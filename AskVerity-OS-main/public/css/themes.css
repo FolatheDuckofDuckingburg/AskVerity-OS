@@ -1,0 +1,194 @@
+/* ==========================================================================
+   AskVerity OS — design tokens, themes and wallpapers
+   Classic desktop palette: grey chrome, navy title bars, teal and sky.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Brand palette */
+  --sky: #3a7bd5;
+  --lavender: #e8ddf8;
+  --yellow: #ffd60a;
+  --cream: #fff9e9;
+  --charcoal: #292929;
+  --white: #ffffff;
+
+  /* Type */
+  --font-ui: Tahoma, "MS Sans Serif", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Courier New", ui-monospace, Consolas, monospace;
+
+  /* Shape and depth */
+  --radius-window: 0px;
+  --radius-ui: 0px;
+  --radius-pill: 0px;
+  --shadow-window: 2px 2px 6px rgba(0, 0, 0, 0.38);
+  --shadow-hard: 1px 1px 0 rgba(0, 0, 0, 0.35);
+  --shadow-pop: 3px 3px 0 rgba(0, 0, 0, 0.28);
+
+  /* Motion */
+  --dur-fast: 0.06s;
+  --dur: 0.08s;
+  --dur-slow: 0.1s;
+  --ease: linear;
+  --taskbar-h: 32px;
+}
+
+/* --------------------------------------------------------------------------
+   Classic — grey chrome, navy title bars, teal desktop
+   -------------------------------------------------------------------------- */
+[data-theme="daylight"] {
+  color-scheme: light;
+  --surface: #c0c0c0;
+  --surface-2: #ffffff;
+  --surface-3: #d4d0c8;
+  --surface-sunken: #a8a8a8;
+  --ink: #000000;
+  --ink-soft: #1c1c1c;
+  --ink-faint: #4a4a4a;
+  --line: #000000;
+  --line-soft: #808080;
+  --chrome: #000080;
+  --chrome-muted: #808080;
+  --chrome-ink: #ffffff;
+  --accent: #000080;
+  --accent-strong: #000080;
+  --accent-ink: #ffffff;
+  --bubble-user: #fffdd0;
+  --bubble-assistant: #ffffff;
+  --taskbar: #c0c0c0;
+  --taskbar-ink: #000000;
+  --menu: #c0c0c0;
+  --focus: #000080;
+  --ok: #006600;
+  --warn: #7a4b00;
+  --danger: #a80000;
+  --scrim: rgba(0, 0, 0, 0.42);
+  --code-bg: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Dusk — warm grey chrome and brick title bars
+   -------------------------------------------------------------------------- */
+[data-theme="dusk"] {
+  color-scheme: light;
+  --surface: #c9c0b2;
+  --surface-2: #fffdf5;
+  --surface-3: #d8cfc1;
+  --surface-sunken: #b0a697;
+  --ink: #1a1510;
+  --ink-soft: #2b241c;
+  --ink-faint: #574c40;
+  --line: #000000;
+  --line-soft: #8a8175;
+  --chrome: #7b2d26;
+  --chrome-muted: #8f8478;
+  --chrome-ink: #ffffff;
+  --accent: #7b2d26;
+  --accent-strong: #63241e;
+  --accent-ink: #ffffff;
+  --bubble-user: #fff2d6;
+  --bubble-assistant: #fffdf5;
+  --taskbar: #c9c0b2;
+  --taskbar-ink: #1a1510;
+  --menu: #c9c0b2;
+  --focus: #7b2d26;
+  --ok: #14603f;
+  --warn: #7a4b00;
+  --danger: #a51f14;
+  --scrim: rgba(26, 18, 10, 0.45);
+  --code-bg: #fffdf5;
+}
+
+/* --------------------------------------------------------------------------
+   Midnight — dark grey chrome
+   -------------------------------------------------------------------------- */
+[data-theme="midnight"] {
+  color-scheme: dark;
+  --surface: #3b3b3b;
+  --surface-2: #202020;
+  --surface-3: #4a4a4a;
+  --surface-sunken: #2a2a2a;
+  --ink: #f2f2f2;
+  --ink-soft: #d6d6d6;
+  --ink-faint: #b0b0b0;
+  --line: #000000;
+  --line-soft: #6a6a6a;
+  --chrome: #1b4b86;
+  --chrome-muted: #4b4b4b;
+  --chrome-ink: #ffffff;
+  --accent: #2f6db5;
+  --accent-strong: #4d8fd1;
+  --accent-ink: #ffffff;
+  --bubble-user: #4a4a4a;
+  --bubble-assistant: #2b2b2b;
+  --taskbar: #3b3b3b;
+  --taskbar-ink: #f2f2f2;
+  --menu: #3b3b3b;
+  --focus: #8fd3ff;
+  --ok: #7be0a8;
+  --warn: #ffd37a;
+  --danger: #ff9a8f;
+  --scrim: rgba(0, 0, 0, 0.62);
+  --code-bg: #1c1c1c;
+}
+
+/* --------------------------------------------------------------------------
+   Wallpapers — CSS only, no image requests
+   -------------------------------------------------------------------------- */
+
+/* Blue sky, clouds and green hills: the classic desktop. */
+.desktop[data-wallpaper="sky"] {
+  background-color: #3a7bd5;
+  background-image:
+    radial-gradient(ellipse 19vmax 7.5vmax at 15% 15%, #ffffff 0 68%, rgba(255, 255, 255, 0) 69%),
+    radial-gradient(ellipse 13vmax 5.5vmax at 24% 21%, #ffffff 0 68%, rgba(255, 255, 255, 0) 69%),
+    radial-gradient(ellipse 15vmax 6vmax at 72% 12%, #ffffff 0 68%, rgba(255, 255, 255, 0) 69%),
+    radial-gradient(ellipse 10vmax 4.5vmax at 85% 17%, #ffffff 0 68%, rgba(255, 255, 255, 0) 69%),
+    radial-gradient(ellipse 135% 62% at 50% 118%, #4f8f3a 0 56%, rgba(79, 143, 58, 0) 57%),
+    radial-gradient(ellipse 95% 44% at 44% 122%, #74b556 0 56%, rgba(116, 181, 86, 0) 57%),
+    linear-gradient(180deg, #1c4f9c 0%, #3d7fc4 46%, #a8d5ef 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Flat teal: the other classic desktop. */
+.desktop[data-wallpaper="lavender"] {
+  background-color: #008080;
+  background-image: none;
+}
+
+/* Warm sand. */
+.desktop[data-wallpaper="sunrise"] {
+  background-color: #c2ae86;
+  background-image: linear-gradient(180deg, #d8c9a6 0%, #c2ae86 100%);
+}
+
+/* Blueprint grid. */
+.desktop[data-wallpaper="pixel"] {
+  background-color: #1d3b6e;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-repeat: repeat;
+  background-size: 24px 24px;
+}
+
+/* Night sky. */
+.desktop[data-wallpaper="midnight"] {
+  background-color: #101a2e;
+  background-image:
+    radial-gradient(1.6px 1.6px at 22px 34px, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 132px 96px, rgba(255, 255, 255, 0.6) 50%, transparent 51%),
+    radial-gradient(1.8px 1.8px at 74px 148px, rgba(255, 255, 255, 0.75) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 186px 42px, rgba(255, 255, 255, 0.55) 50%, transparent 51%),
+    linear-gradient(180deg, #0c1526 0%, #16294a 100%);
+  background-repeat: repeat;
+  background-size: 220px 180px;
+}
+
+/* Keep classic wallpapers readable when the dark theme is selected. */
+[data-theme="midnight"] .desktop[data-wallpaper="sky"],
+[data-theme="midnight"] .desktop[data-wallpaper="sunrise"] {
+  filter: saturate(0.55) brightness(0.55);
+}
