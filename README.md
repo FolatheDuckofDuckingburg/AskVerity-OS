@@ -6,7 +6,7 @@ Verity has no fixed gender and is referred to as “they”.
 
 No framework. No build step. No paid API. No tracking.
 
-![Verity](public/assets/verity.svg)
+![Verity](AskVerity-OS-main/public/assets/verity.svg)
 
 ---
 
