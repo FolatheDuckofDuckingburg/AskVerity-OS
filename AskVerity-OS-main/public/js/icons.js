@@ -43,6 +43,12 @@ export const APP_ICONS = {
     <path d="M30 38l7-7 4 4-7 7-4-4Z" fill="#FFE66D" stroke="${stroke}" stroke-width="2" stroke-linejoin="round"/>
   `),
 
+  focus: appShell(`
+    <circle cx="24" cy="24" r="17" fill="#D8F0C8" stroke="${stroke}" stroke-width="2.5"/>
+    <path d="M24 13v11l7 4" fill="none" stroke="${stroke}" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M24 7v3M41 24h-3M24 41v-3M7 24h3" stroke="${stroke}" stroke-width="2" stroke-linecap="round"/>
+  `),
+
   calculator: appShell(`
     <rect x="7" y="4" width="34" height="40" rx="6" fill="#FFFFFF" stroke="${stroke}" stroke-width="2.5"/>
     <rect x="12" y="9" width="24" height="9" rx="3" fill="#B9DDF7" stroke="${stroke}" stroke-width="2"/>
