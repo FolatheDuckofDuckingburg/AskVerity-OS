@@ -74,6 +74,7 @@ No API keys exist in this project, so there is nothing secret in the frontend.
 | **Files** | A simulated drive: sidebar, breadcrumbs, grid/list views, search, details pane, move to Trash. |
 | **Browser** | A real, script-free reader: fetches pages through the local server, strips their scripts, rewrites links, and supports back/forward, bookmarks, history and a **Verity panel** that summarises the page and answers questions about it. |
 | **Calculator** | Safe recursive-descent parser (no `eval`), keyboard input, decimals, parentheses, percent, friendly errors. |
+| **Focus Space** | Accessible 15/25/45-minute focus timer, pause/reset controls, progress bar, and a private task list saved in this browser. Timer stops when its window closes. |
 | **Settings** | Themes, wallpapers, sound effects, motion preference, Verity's personality, provider status, reset. |
 | **Trash** | Restore or permanently delete simulated files. |
 | **About Verity** | The mascot (click to cycle expressions), honest feature notes, keyboard shortcuts. |
@@ -208,3 +209,11 @@ safe implementation of arithmetic instead of two.
 ## License
 
 Apache 2.0 License. The mascot and icons are original SVG drawn for this project.
+
+
+## Focus Space
+
+Focus Space adds a gentle focus timer and a small task list. Choose 15, 25 or 45 minutes,
+pause or reset whenever you need, and add up to 50 short tasks. Tasks are stored in this
+browser using the same namespaced local-storage helper as Notes. The timer is intentionally
+not a background timer: it stops when its app window closes or the page is unloaded.
