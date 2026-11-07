@@ -147,14 +147,28 @@ export function pathOf(tree, item) {
 }
 
 export function collectIds(tree, id) {
-  const ids = [id];
-  let index = 0;
-  while (index < ids.length) {
-    const parent = ids[index];
-    for (const child of tree.items) {
-      if (child.parent === parent) ids.push(child.id);
+  if (!findItem(tree, id)) return [];
+
+  const childrenByParent = new Map();
+  for (const item of tree.items) {
+    if (typeof item.id !== 'string') continue;
+    const parentId = item.parent ?? null;
+    const children = childrenByParent.get(parentId) ?? [];
+    children.push(item.id);
+    childrenByParent.set(parentId, children);
+  }
+
+  const ids = [];
+  const queue = [id];
+  const visited = new Set();
+  for (let index = 0; index < queue.length; index += 1) {
+    const currentId = queue[index];
+    if (visited.has(currentId)) continue;
+    visited.add(currentId);
+    ids.push(currentId);
+    for (const childId of childrenByParent.get(currentId) ?? []) {
+      if (!visited.has(childId)) queue.push(childId);
     }
-    index += 1;
   }
   return ids;
 }

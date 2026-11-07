@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "node AskVerity-OS-main/server/server.js",
-    "dev": "node --watch AskVerity-OS-main/server/server.js"
+    "dev": "node --watch AskVerity-OS-main/server/server.js",
+    "test": "node --test"
   },
   "engines": {
     "node": ">=18"
