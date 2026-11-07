@@ -18,6 +18,7 @@ export default {
     let selectedMinutes = 25;
     let remaining = selectedMinutes * 60;
     let interval = null;
+    let deadline = null;
     let running = false;
     let tasks = read('focus-tasks', []);
     if (!Array.isArray(tasks)) tasks = [];
@@ -36,7 +37,7 @@ export default {
             <button class="btn btn--primary" type="button" data-toggle>Start focus</button>
             <button class="btn" type="button" data-reset>Reset</button>
           </div>
-          <div class="focus__track" aria-hidden="true"><span data-progress></span></div>
+          <div class="focus__track" role="progressbar" aria-label="Focus session progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span data-progress></span></div>
           <p class="focus__hint">The timer runs only while this window is open. No pressure to finish — pause whenever you need.</p>
         </section>
         <section class="focus__tasks">
@@ -76,7 +77,9 @@ export default {
       clock.textContent = formatTime(remaining);
       toggle.textContent = running ? 'Pause' : 'Start focus';
       toggle.setAttribute('aria-label', running ? 'Pause focus timer' : 'Start focus timer');
-      progress.style.width = `${((selectedMinutes * 60 - remaining) / (selectedMinutes * 60)) * 100}%`;
+      const percent = Math.round(((selectedMinutes * 60 - remaining) / (selectedMinutes * 60)) * 100);
+      progress.style.width = `${percent}%`;
+      progress.parentElement.setAttribute('aria-valuenow', String(percent));
       root.querySelectorAll('[data-preset]').forEach((button) => {
         const active = Number(button.dataset.preset) === selectedMinutes;
         button.setAttribute('aria-pressed', String(active));
@@ -88,11 +91,12 @@ export default {
     function stopTimer() {
       if (interval !== null) window.clearInterval(interval);
       interval = null;
+      deadline = null;
       running = false;
     }
 
     function tick() {
-      remaining = Math.max(0, remaining - 1);
+      remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
       renderTimer();
       if (remaining === 0) {
         stopTimer();
@@ -104,11 +108,13 @@ export default {
 
     toggle.addEventListener('click', () => {
       if (running) {
+        remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
         stopTimer();
         status.textContent = 'Paused. Resume whenever you are ready.';
       } else if (remaining > 0) {
         running = true;
-        interval = window.setInterval(tick, 1000);
+        deadline = Date.now() + remaining * 1000;
+        interval = window.setInterval(tick, 250);
         status.textContent = 'You are in a focus session. You can pause at any time.';
       }
       renderTimer();
