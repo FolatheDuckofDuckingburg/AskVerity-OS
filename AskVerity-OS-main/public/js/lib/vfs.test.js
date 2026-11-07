@@ -37,7 +37,7 @@ test('collectIds returns an empty list for a missing item', () => {
   assert.deepEqual(collectIds({ items: [], trash: [] }, 'missing'), []);
 });
 
-test('deleteToTrash moves each reachable item once even when the tree has a cycle', () => {
+test('deleteToTrash refuses ambiguous duplicate IDs without partially deleting a tree', () => {
   const tree = {
     items: [
       { id: 'root', name: 'Root', parent: null, type: 'folder' },
@@ -46,11 +46,10 @@ test('deleteToTrash moves each reachable item once even when the tree has a cycl
     ],
     trash: [],
   };
+  const before = structuredClone(tree);
 
-  assert.equal(deleteToTrash(tree, 'root'), 2);
-  assert.equal(tree.items.length, 1);
-  assert.equal(tree.items[0].name, 'Duplicate root');
-  assert.equal(tree.trash.length, 2);
+  assert.equal(deleteToTrash(tree, 'root'), 0);
+  assert.deepEqual(tree, before);
 });
 
 test('deleteToTrash leaves the tree unchanged for a missing item', () => {

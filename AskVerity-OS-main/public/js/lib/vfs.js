@@ -177,6 +177,14 @@ export function deleteToTrash(tree, id) {
   const ids = collectIds(tree, id);
   if (!ids.length) return 0;
 
+  // Duplicate IDs make item identity ambiguous. Refuse the operation rather
+  // than moving only the first matching record and leaving an orphan behind.
+  const idCounts = new Map();
+  for (const item of tree.items) {
+    idCounts.set(item.id, (idCounts.get(item.id) ?? 0) + 1);
+  }
+  if (ids.some((itemId) => idCounts.get(itemId) !== 1)) return 0;
+
   const group = uid('trash-group');
   let moved = 0;
 
