@@ -22,7 +22,7 @@ const SEED = {
       parent: 'root-documents',
       modified: daysAgo(2),
       content:
-        'Welcome to AskVerity OS!\n\nThis drive is simulated. Every file you see lives in your browser\'s local storage, not on your computer.\n\nThings to try:\n- Open the Notes app and write something.\n- Switch Files to list view.\n- Delete a file and restore it from Trash.\n- Ask Verity what it can do.\n',
+        'Welcome to AskVerity OS!\\n\\nThis drive is simulated. Every file you see lives in your browser\\'s local storage, not on your computer.\\n\\nThings to try:\\n- Open the Notes app and write something.\\n- Switch Files to list view.\\n- Delete a file and restore it from Trash.\\n- Ask Verity what it can do.\\n',
     },
     {
       id: 'doc-shortcuts',
@@ -31,7 +31,7 @@ const SEED = {
       parent: 'root-documents',
       modified: daysAgo(4),
       content:
-        '# Keyboard shortcuts\n\n- Alt + Shift + V — open Verity\n- Alt + Shift + S — open the Start menu\n- Enter on a desktop icon — open the app\n- Escape — close menus and popovers\n- Tab / Shift + Tab — move between controls\n\nWindows are draggable by their title bars. Double-click a title bar to maximise.\n',
+        '# Keyboard shortcuts\\n\\n- Alt + Shift + V — open Verity\\n- Alt + Shift + S — open the Start menu\\n- Enter on a desktop icon — open the app\\n- Escape — close menus and popovers\\n- Tab / Shift + Tab — move between controls\\n\\nWindows are draggable by their title bars. Double-click a title bar to maximise.\\n',
     },
     {
       id: 'doc-verity',
@@ -40,7 +40,7 @@ const SEED = {
       parent: 'root-documents',
       modified: daysAgo(5),
       content:
-        'Verity is the resident assistant of AskVerity OS.\n\nVerity is a yellow smiley face, drawn entirely in SVG: they try very hard to be useful without pretending to know things they do not.\n\nVerity has no fixed gender. Without a local model configured they run on a small demo brain that can greet you, do arithmetic, tell the time and explain the desktop. With Ollama running, a real model takes over.\n',
+        'Verity is the resident assistant of AskVerity OS.\\n\\nVerity is a yellow smiley face, drawn entirely in SVG: they try very hard to be useful without pretending to know things they do not.\\n\\nVerity has no fixed gender. Without a local model configured they run on a small demo brain that can greet you, do arithmetic, tell the time and explain the desktop. With Ollama running, a real model takes over.\\n',
     },
     {
       id: 'pic-face',
@@ -49,7 +49,7 @@ const SEED = {
       parent: 'root-pictures',
       modified: daysAgo(6),
       content:
-        '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">\n  <circle cx="60" cy="62" r="45" fill="#FFE66D" stroke="#292929" stroke-width="4"/>\n  <circle cx="44" cy="50" r="6" fill="#292929"/>\n  <circle cx="76" cy="50" r="6" fill="#292929"/>\n  <path d="M42 74q18 17 36 0" fill="none" stroke="#292929" stroke-width="4" stroke-linecap="round"/>\n</svg>\n',
+        '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">\\n  <circle cx="60" cy="62" r="45" fill="#FFE66D" stroke="#292929" stroke-width="4"/>\\n  <circle cx="44" cy="50" r="6" fill="#292929"/>\\n  <circle cx="76" cy="50" r="6" fill="#292929"/>\\n  <path d="M42 74q18 17 36 0" fill="none" stroke="#292929" stroke-width="4" stroke-linecap="round"/>\\n</svg>\\n',
     },
     {
       id: 'pic-notes',
@@ -58,7 +58,7 @@ const SEED = {
       parent: 'root-pictures',
       modified: daysAgo(9),
       content:
-        'Wallpaper sketches (all drawn with CSS gradients, no image files):\n\n1. Sky — soft blue with distant clouds.\n2. Lavender — pale purple with a warm sun.\n3. Sunrise — peach, pink and a low sun.\n4. Pixel grid — cream with a 32px grid.\n5. Midnight — navy, stars and a soft moon.\n',
+        'Wallpaper sketches (all drawn with CSS gradients, no image files):\\n\\n1. Sky — soft blue with distant clouds.\\n2. Lavender — pale purple with a warm sun.\\n3. Sunrise — peach, pink and a low sun.\\n4. Pixel grid — cream with a 32px grid.\\n5. Midnight — navy, stars and a soft moon.\\n',
     },
     {
       id: 'mus-chime',
@@ -67,7 +67,7 @@ const SEED = {
       parent: 'root-music',
       modified: daysAgo(11),
       content:
-        'AskVerity OS does not ship audio files.\n\nInterface sounds are generated live with the Web Audio API: two short triangle-wave notes for opening a window, a lower pair for closing, and a small rise for notifications.\n\nYou can switch them off in Settings → Sound effects.\n',
+        'AskVerity OS does not ship audio files.\\n\\nInterface sounds are generated live with the Web Audio API: two short triangle-wave notes for opening a window, a lower pair for closing, and a small rise for notifications.\\n\\nYou can switch them off in Settings → Sound effects.\\n',
     },
     { id: 'proj-folder', name: 'askverity-os', type: 'folder', parent: 'root-projects', modified: daysAgo(1) },
     {
@@ -77,7 +77,7 @@ const SEED = {
       parent: 'proj-folder',
       modified: daysAgo(1),
       content:
-        '# AskVerity OS\n\nA small desktop environment in the browser.\n\n- Frontend: plain HTML, CSS and ES modules. No framework.\n- Backend: a tiny Node.js server with zero dependencies.\n- Assistant: an Ollama provider and a built-in demo brain behind one interface.\n\nRun it with: npm start\n',
+        '# AskVerity OS\\n\\nA small desktop environment in the browser.\\n\\n- Frontend: plain HTML, CSS and ES modules. No framework.\\n- Backend: a tiny Node.js server with zero dependencies.\\n- Assistant: an Ollama provider and a built-in demo brain behind one interface.\\n\\nRun it with: npm start\\n',
     },
     {
       id: 'proj-roadmap',
@@ -86,7 +86,7 @@ const SEED = {
       parent: 'proj-folder',
       modified: daysAgo(1),
       content:
-        '# Ideas for later\n\n- A text editor app with real file export.\n- Multiple assistant providers behind the same interface.\n- Window snapping to screen edges.\n- A shared clipboard between apps.\n\nShortcuts and honesty first, features second.\n',
+        '# Ideas for later\\n\\n- A text editor app with real file export.\\n- Multiple assistant providers behind the same interface.\\n- Window snapping to screen edges.\\n- A shared clipboard between apps.\\n\\nShortcuts and honesty first, features second.\\n',
     },
   ],
   trash: [
@@ -96,7 +96,7 @@ const SEED = {
       type: 'file',
       parent: null,
       modified: daysAgo(12),
-      content: 'postcards\npens\nsomething yellow\n',
+      content: 'postcards\\npens\\nsomething yellow\\n',
       trashId: 'trash-entry-1',
       trashGroup: 'trash-group-1',
       deletedAt: daysAgo(2),
@@ -147,14 +147,28 @@ export function pathOf(tree, item) {
 }
 
 export function collectIds(tree, id) {
-  const ids = [id];
-  let index = 0;
-  while (index < ids.length) {
-    const parent = ids[index];
-    for (const child of tree.items) {
-      if (child.parent === parent) ids.push(child.id);
+  if (!findItem(tree, id)) return [];
+
+  const childrenByParent = new Map();
+  for (const item of tree.items) {
+    if (typeof item.id !== 'string') continue;
+    const parentId = item.parent ?? null;
+    const children = childrenByParent.get(parentId) ?? [];
+    children.push(item.id);
+    childrenByParent.set(parentId, children);
+  }
+
+  const ids = [];
+  const queue = [id];
+  const visited = new Set();
+  for (let index = 0; index < queue.length; index += 1) {
+    const currentId = queue[index];
+    if (visited.has(currentId)) continue;
+    visited.add(currentId);
+    ids.push(currentId);
+    for (const childId of childrenByParent.get(currentId) ?? []) {
+      if (!visited.has(childId)) queue.push(childId);
     }
-    index += 1;
   }
   return ids;
 }
